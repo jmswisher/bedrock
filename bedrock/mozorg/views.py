@@ -580,3 +580,12 @@ def namespaces(request, namespace):
     context['slug'] = namespace
     template = 'mozorg/namespaces.html'
     return django_render(request, template, context)
+
+
+def contribute_friends(request):
+    # TODO: update newsletter ID - https://bugzilla.mozilla.org/show_bug.cgi?id=1254685
+    newsletter_form = NewsletterFooterForm('about-mozilla', l10n_utils.get_locale(request))
+
+    return l10n_utils.render(request,
+                             'mozorg/contribute/friends.html',
+                             {'newsletter_form': newsletter_form})
