@@ -4,15 +4,15 @@
 
 @import "../sandstone/lib.less";
 
-// mixin swiped from /firefox/family/index.less
-.fxfamily-sprite(@posx, @posy) {
-    .at2x('/media/img/firefox/family/index/family-sprite-11-2015.png', 535px, 1117px);
-    background-position: @posx @posy;
+.fxfeatures-sprite(@posy) {
+    .at2x('/media/img/firefox/features/features-sprite.png', 129px, 214px);
+    background-position: 0 @posy;
     background-repeat: no-repeat;
-    overflow: hidden;
-    margin: (@baseLine / 2) auto 0;
-    display: block;
     content: '';
+    display: block;
+    margin: @baseLine auto 0;
+    overflow: hidden;
+    width: 129px;
 }
 
 .mozid {
@@ -21,9 +21,9 @@
     }
 
     #wrapper {
-        width: 100%;
         overflow: hidden;
         padding: 0;
+        width: 100%;
     }
 }
 
@@ -36,9 +36,9 @@
 
     h1 {
         .font-size(4rem);
+        color: #fff;
         line-height: 1.2;
         text-shadow: none;
-        color: #fff;
 
         @media (max-width: @breakDesktop) {
             .font-size(2.625rem);
@@ -51,8 +51,8 @@
 
     p {
         .font-size(1.75rem);
-        line-height: 1.4;
         .open-sans-light();
+        line-height: 1.4;
 
         @media (max-width: @breakDesktop) {
             .font-size(1.125rem);
@@ -65,18 +65,18 @@
 
     h1,
     p {
-        text-align: center;
         .span-all();
         margin-bottom: @baseLine / 2;
+        text-align: center;
     }
 }
 
 #fxfeature-list {
     .clearfix();
-    width: @breakDesktop - (@baseLine * 2);
     list-style-type: none;
     margin: 0 auto;
     padding: 0;
+    width: @breakDesktop - (@baseLine * 2);
 
     @media (max-width: @breakDesktop) {
         width: @breakTablet - (@baseLine * 2);
@@ -91,16 +91,19 @@
     }
 
     li {
-        float: left;
-        width: 400px;
-        padding: @baseLine;
-        margin: 0 (@baseLine) (@baseLine * 2);
-        text-align: center;
-        border-radius: 6px;
+        .transition(background 0.2s ease);
         background: #fff;
         background: rgba(255, 255, 255, 0.9);
-        min-height: 200px;
+        border-radius: 6px;
         box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        float: left;
+        margin: 0 (@baseLine) (@baseLine * 2);
+        text-align: center;
+        width: 440px;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.95);
+        }
 
         &:nth-child(odd) {
             clear: left;
@@ -111,26 +114,18 @@
         }
 
         &.sync h2:after {
-            .fxfamily-sprite(-345px, -405px);
-            width: 120px;
-            height: 80px;
+            .fxfeatures-sprite(0);
+            height: 74px;
         }
 
         &.private-browsing h2:after {
-            .fxfamily-sprite(-268px, -555px);
-            width: 130px;
-            height: 70px;
-            padding: 5px 0;
+            .fxfeatures-sprite(-74px);
+            height: 64px;
         }
 
         &.hello h2:after {
-            .fxfamily-sprite(-380px, -115px);
-            width: 84px;
-            height: 80px;
-        }
-
-        p {
-            min-height: 70px;
+            .fxfeatures-sprite(-138px);
+            height: 76px;
         }
 
         @media (max-width: @breakDesktop) {
@@ -138,10 +133,10 @@
         }
 
         @media (max-width: @breakTablet) {
-            width: auto;
-            margin: 0 0 (@baseLine * 2);
             float: none;
+            margin: 0 0 (@baseLine * 2);
             min-height: 0;
+            width: auto;
 
             p {
                 min-height: auto;
@@ -149,8 +144,24 @@
         }
     }
 
-    a {
+    .cta {
+        .font-size(@largeFontSize);
         .trailing-arrow();
+        color: @mozIDBlue;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .fxfeature-link {
+        color: @textColorPrimary;
+        display: block;
+        padding: @baseLine;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
 }
 
@@ -162,24 +173,29 @@
 
         li {
             display: flex;
-            flex: 0 0 400px;
-            flex-wrap: wrap;
+            flex: 0 0 440px;
             float: none;
+        }
 
-            a,
+        .fxfeature-link {
+            display: flex;
+            flex: 1 0;
+            flex-wrap: wrap;
+
             h2,
-            p {
+            .copy,
+            .cta {
                 flex: 0 0 100%;
             }
 
             // bottom-align link in each feature box
-            a {
+            .cta {
                 align-self: flex-end;
             }
+        }
 
-            @media (max-width: @breakDesktop) {
-                flex: 0 0 280px;
-            }
+        @media (max-width: @breakDesktop) {
+            justify-content: center;
         }
 
         @media (max-width: @breakTablet) {

@@ -34,32 +34,38 @@
 
   <ul id="fxfeature-list">
     <li class="private-browsing">
-      <h2>{{ _('Private Browsing') }}</h2>
+      <a class="fxfeature-link" href="{{ url('firefox.private-browsing') }}">
+        <h2>{{ _('Private Browsing') }}</h2>
 
-      <p>
-        {{ _('No other browser gives you so much control over your digital footprint.') }}
-      </p>
+        <p class="copy">
+          {{ _('No other browser gives you so much control over your digital footprint.') }}
+        </p>
 
-      <a href="{{ url('firefox.private-browsing') }}">{{ _('Learn more about Private Browsing') }}</a>
+        <p class="cta">{{ _('Learn more about Private Browsing') }}</p>
+      </a>
     </li>
     <li class="sync">
-      <h2>{{ _('Sync') }}</h2>
+      <a class="fxfeature-link" href="{{ url('firefox.sync') }}">
+        <h2>{{ _('Sync') }}</h2>
 
-      <p>
-        {{ _('Sync Firefox wherever you use it to access your bookmarks, passwords, tabs and more from any smartphone, tablet or computer.') }}
-      </p>
+        <p class="copy">
+          {{ _('Sync Firefox wherever you use it to access your bookmarks, passwords, tabs and more from any smartphone, tablet or computer.') }}
+        </p>
 
-      <a href="{{ url('firefox.sync') }}">{{ _('Learn more about Sync') }}</a>
+        <p class="cta">{{ _('Learn more about Sync') }}</p>
+      </a>
     </li>
     <li class="hello">
-      <h2>{{ _('Firefox Hello') }}</h2>
+      <a class="fxfeature-link" href="{{ url('firefox.hello') }}">
+        <h2>{{ _('Firefox Hello') }}</h2>
 
-      <p>
-        {{ _('Plan. Shop. Decide. Together.') }}
-        {{ _('Instantly browse any Web page with a friend.') }}
-      </p>
+        <p class="copy">
+          {{ _('Plan. Shop. Decide. Together.') }}
+          {{ _('Instantly browse any Web page with a friend.') }}
+        </p>
 
-      <a href="{{ url('firefox.hello') }}">{{ _('Learn more about Hello') }}</a>
+        <p class="cta">{{ _('Learn more about Hello') }}</p>
+      </a>
     </li>
   </ul>
 </main>
